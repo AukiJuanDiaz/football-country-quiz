@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mobile-Optimized Football Pitch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    <div class="pitch">
+      <img src="output.png" alt="Bird's eye view of a football pitch">
+    </div>
+    <select id="round">
+        <option value="">Bitte auswählen</option>
+        <option value="Gruppenphase">Gruppenphase</option>
+        <option value="Achtelfinale">Achtelfinale</option>
+        <option value="Viertelfinale">Viertelfinale</option>
+        <option value="Halbfinale">Halbfinale</option>
+        <option value="Finale">Finale</option>
+    </select>
+
+    <label for="club">Select the home club:</label>
+        <input type="text" id="club" list="clubs">
+        <datalist id="clubs">
+        <option value="Real Madrid">
+        <option value="Barcelona">
+        <option value="Bayern Munich">
+        <option value="Manchester United">
+        <option value="Liverpool">
+        <option value="Juventus">
+        <option value="Paris Saint-Germain">
+        <option value="Chelsea">
+        <option value="Manchester City">
+        <option value="AC Milan">
+        </datalist>
+
+    <label for="club">Select the away club:</label>
+        <input type="text" id="club" list="clubs">
+        <datalist id="clubs">
+        <option value="Real Madrid">
+        <option value="Barcelona">
+        <option value="Bayern Munich">
+        <option value="Manchester United">
+        <option value="Liverpool">
+        <option value="Juventus">
+        <option value="Paris Saint-Germain">
+        <option value="Chelsea">
+        <option value="Manchester City">
+        <option value="AC Milan">
+        </datalist>
+
+
+    <form>
+
+        <input type="number" name="digit1" id="digit1" min="0" max="9" pattern="[0-9]" inputmode="numeric" oninput="jumpToNextField()" required>
+        <span>:</span>
+
+        <input type="number" name="digit2" id="digit2" min="0" max="9" pattern="[0-9]" inputmode="numeric" required>
+        </form>
+        
+        <script>
+        function jumpToNextField() {
+        const digit1 = document.getElementById("digit1");
+        const digit2 = document.getElementById("digit2");
+        if (digit1.value.length == 1) {
+            digit2.focus();
+        }
+        }
+        </script>
+
+
+  </body>
+</html>

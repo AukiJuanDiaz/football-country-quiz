@@ -1,0 +1,10 @@
+.pitch {
+    width: 100%;
+    max-width: 500px; /* adjust as needed */
+    margin: 0 auto;
+  }
+  
+  .pitch img {
+    max-width: 100%;
+  }
+  
