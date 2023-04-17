@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+	<title>Match Solution</title>
+</head>
+<body>
+	<h3>Deine Antwort</h3>
+	<p>{{ text }}</p>
+	<h3>Punkte:</h3>
+    <h5>Diese Runde</h5>
+	<p>{{ points_this_round }}</p>
+    <h5>Gesamt</h5>
+    <p>{{ points_total }}</p>
+    <h3>Runde</h3>
+    <p>{{ round_of_rounds }}</p>
+    {% if last_round %}
+    <form action="/" method="GET">
+        <input type="submit" value="Zurück zur Startseite">
+    </form>
+    {% else %}
+    <form action="/guess_match" method="POST">
+        <input type="submit" value="Weiter">
+    </form>
+    {% endif %}
+</body>
+</html>

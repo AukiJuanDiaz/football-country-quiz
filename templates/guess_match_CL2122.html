@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+		.container {
+			height: 80vh;
+			display: flex;
+			flex-direction: column;
+		}
+		img {
+			max-height: 72%;
+			width: auto;
+			display: block;
+			margin: auto;
+		}
+
+    h2 {
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 1rem; /* add margin to the top */
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 15vh;
+    }
+
+    #round {
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: -0.8rem;
+    }
+
+    .form-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .form-row-send {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .form-row-send:last-child {
+      /* margin-left: auto; */
+    }
+
+    .form-input {
+        width: calc(50% - 5px); /* subtract 5px for margin */
+        font-size: 1rem;
+    }
+
+    .form-input + .form-input {
+        margin-left: 10px; /* add 10px margin between adjacent form-inputs */
+    }
+
+    #submit-button {
+      background-color: green;
+      color: white;
+      padding: 0.2rem 2rem;
+      border: none;
+      border-radius: 0.25rem;
+      margin-top: 0rem;
+    }
+	</style>
+</head>
+<body>
+	<div class="container">
+<!-- 		<img src="output.png"> -->
+    <img src="{{ path_to_guess_image }}">
+    <form id="match-form" method="POST" action="/match_solution">
+      <h2>Rate das Spiel</h2>
+      <select id="round" name="round">
+        <option value="">Wettbewerbsrunde wählen</option>
+        <option value="GROUP_STAGE">Gruppenphase</option>
+        <option value="ROUND_OF_16">Achtelfinale</option>
+        <option value="QUARTER_FINALS">Viertelfinale</option>
+        <option value="SEMI_FINALS">Halbfinale</option>
+        <option value="FINAL">Finale</option>
+      </select>
+      <div class="form-row">
+        <input type="text" class="form-input" id="home-team" name="home-team" list="clubs" placeholder="Heimteam">
+        <input type="text" class="form-input" id="away-team" name="away-team" list="clubs" placeholder="Auswärtsteam">
+        <datalist id="clubs">
+          <option value="Manchester City">
+          <option value="FC Chelsea">
+          <option value="FC Bayern München">
+          <option value="FC Paris Saint-Germain">
+          <option value="FC Liverpool">
+          <option value="Real Madrid">
+          <option value="Manchester United">
+          <option value="FC Barcelona">
+          <option value="Borussia Dortmund">
+          <option value="AC Mailand">
+          <option value="Inter Mailand">
+          <option value="RasenBallsport Leipzig">
+          <option value="Atlético Madrid">
+          <option value="Juventus Turin">
+          <option value="Atalanta Bergamo">
+          <option value="Benfica Lissabon">
+          <option value="FC Porto">
+          <option value="FC Villarreal">
+          <option value="Ajax Amsterdam">
+          <option value="Sporting Lissabon">
+          <option value="Red Bull Salzburg">
+          <option value="LOSC Lille">
+          <option value="FC Sevilla">
+          <option value="VfL Wolfsburg">
+          <option value="Zenit St. Petersburg">
+          <option value="FC Brügge">
+          <option value="Besiktas JK">
+          <option value="Shakhtar Donetsk">
+          <option value="Dynamo Kiew">
+          <option value="BSC Young Boys">
+          <option value="Malmö FF">
+          <option value="FC Sheriff Tiraspol">
+        </datalist>
+      </div>
+      <div class="form-row-send">
+        <input type="number" name="digit1" id="digit1" min="0" max="9" pattern="[0-9]" inputmode="numeric" oninput="jumpToNextField(event)">
+        <span>:</span>
+        <input type="number" name="digit2" id="digit2" min="0" max="9" pattern="[0-9]" inputmode="numeric">
+        <script>
+          function jumpToNextField(event) {
+            const input = event.target;
+            const inputLength = input.value.length;
+            const maxLength = input.getAttribute("maxlength");
+            if (inputLength >= maxLength) {
+              const form = input.form;
+              const index = Array.prototype.indexOf.call(form, input);
+              form.elements[index + 1].focus();
+            }
+          }
+        </script>
+      </div>
+      <button id="submit-button" type="submit">Senden</button>
+    </form>
+	</div>
+</body>
+</html>

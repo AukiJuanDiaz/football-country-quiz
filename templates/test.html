@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Form</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        font-family: Arial, sans-serif;
+      }
+      
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+      
+      h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      
+      select,
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: url("https://image.flaticon.com/icons/png/128/3306/3306337.png") no-repeat scroll right center transparent;
+        background-size: 18px;
+      }
+      
+      select {
+        background-color: white;
+      }
+      
+      input[type="number"] {
+        text-align: center;
+      }
+      
+      span {
+        display: inline-block;
+        width: 10%;
+        text-align: center;
+        font-size: 24px;
+      }
+      
+      .submit-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      button {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #3e8e41;
+      }
+      
+      @media screen and (min-width: 600px) {
+        .form-wrapper {
+          display: flex;
+          justify-content: space-between;
+        }
+        
+        .form-wrapper .form-group {
+          width: 48%;
+        }
+        
+        .form-wrapper .form-group input[type="number"] {
+          width: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Football Form</h1>
+        <h2>Enter Match Details</h2>
+      </div>
+      
+      <form>
+        <label for="round">Round:</label>
+        <select id="round">
+          <option value="">Please select</option>
+          <option value="Group stage">Group stage</option>
+          <option value="Round of 16">Round of 16</option>
+          <option value="Quarter-finals">Quarter-finals</option>
+          <option value="Semi-finals">Semi-finals</option>
+          <option value="Final">Final</option>
+        </select>
+  
+  <form>
+    <label for="home-club">Select the home club:</label>
+    <input type="text" id="home-club" list="clubs">
+    <label for="away-club">Select the away club:</label>
+    <input type="text" id="away-club" list="clubs">
+    
+    <div>
+      <input type="number" name="home-score" id="home-score" min="0" max="9" pattern="[0-9]" inputmode="numeric" required>
+      <label for="home-score">Home</label>
+    </div>
+    
+    <div>
+      <input type="number" name="away-score" id="away-score" min="0" max="9" pattern="[0-9]" inputmode="numeric" required>
+      <label for="away-score">Away</label>
+    </div>
+    
+    <input type="submit" value="Submit" id="submit-button">
+  </form>
+</body>
+</html>

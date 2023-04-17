@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fun with Flags</title>
+    <style>
+      body {
+        background-color: #3d995d; /* Football green */
+        color: white;
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+      }
+      
+      h1 {
+        text-align: center;
+        font-size: 3em;
+        margin-top: 20px;
+      }
+      
+      h2 {
+        font-size: 1.5em;
+        margin-top: 20px;
+      }
+      
+      p {
+        font-size: 1.2em;
+        margin: 1em 0;
+      }
+      
+      ul {
+        margin: 1em 0;
+        padding-left: 20px;
+      }
+      
+      form {
+        margin-top: 20px;
+        text-align: center;
+      }
+      
+      label {
+        font-size: 1.2em;
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+      }
+      
+      input[type="number"] {
+        font-size: 2em;
+        padding: 5px;
+        width: 100%;
+        max-width: 200px;
+      }
+      
+      input[type="submit"] {
+        font-size: 1.5em;
+        padding: 20px 40px;
+        margin-top: 20px;
+        background-color: white;
+        color: #3d995d;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      select{
+        font-size: 2em;
+      }
+
+      input[type="number"] {
+        font-size: 2em;
+        max-width: auto;
+      }
+      
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5em;
+        }
+        
+        h2 {
+          font-size: 1.2em;
+        }
+        
+        p {
+          font-size: 1em;
+        }
+        
+        input[type="number"] {
+          font-size: 1.2em;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Fun with Flags</h1>
+    <h2>Spiele anhand der Nationalitäten der Startaufstellung erkennen</h2>
+
+    <p>
+      Du bekommst eine Startaufstellung aus dem ausgewähltem Wettbewerb gezeigt.
+      Statt der Spielernamen, siehst du nur ihre Nationalitäten! 
+      Errate die Mannschaften, das Ergebnis und die Wettbewerbsrunde.
+    </p>
+
+    <h2>Punkte</h2>
+    <p>
+      <ul>
+        <li>Je richtigem Team: 1 Punkt</li>
+        <li>Für das richtige Ergebnis: 2 Punkte, bei zumindest richtiger Tendenz: 1 Punkt</li>
+        <li>Für die richtige Wettbewerbsrunde: 1 Punkt</li>
+      </ul>
+    </p>
+
+    <form method="POST" action="/guess_match">
+      <label for="competition">Wähle den Wettbewerb:</label>
+      <select name="competition" id="competition">
+        <option value="CL2122">Champions League 21/22</option>
+      </select>
+
+      <label for="num_rounds">Anzahl Aufstellungen:</label>
+      <input type="number" id="num_rounds" name="num_rounds" min="1" max="9" value="1">
+
+      <input type="submit" value="Spiel starten">
+    </form>
+  </body>
+</html>
